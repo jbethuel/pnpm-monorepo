@@ -1,12 +1,15 @@
 {
   "name": "core",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
-    "dev": "rimraf build && tsc"
+    "dev": "tsx watch --clear-screen=false src",
+    "build": "rimraf build && tsc"
   },
   "devDependencies": {
     "rimraf": "^6.0.1",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   }
 }
