@@ -1,0 +1,13 @@
+{
+  "name": "pnpm-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "core": "pnpm --filter core"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
