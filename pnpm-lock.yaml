@@ -17,7 +17,7 @@ importers:
       '@hono/node-server':
         specifier: ^1.14.3
         version: 1.14.3(hono@4.7.10)
-      core:
+      '@monorepo/core':
         specifier: workspace:*
         version: link:../../packages/core
       hono:
@@ -25,27 +25,11 @@ importers:
         version: 4.7.10
     devDependencies:
       '@types/node':
-        specifier: ^22.15.27
-        version: 22.15.27
+        specifier: ^22.15.29
+        version: 22.15.29
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
-      tsx:
-        specifier: ^4.19.4
-        version: 4.19.4
-
-  apps/server:
-    dependencies:
-      '@hono/node-server':
-        specifier: ^1.14.3
-        version: 1.14.3(hono@4.7.10)
-      hono:
-        specifier: ^4.7.10
-        version: 4.7.10
-    devDependencies:
-      '@types/node':
-        specifier: ^22.15.27
-        version: 22.15.27
       tsx:
         specifier: ^4.19.4
         version: 4.19.4
@@ -58,12 +42,6 @@ importers:
       tsx:
         specifier: ^4.19.4
         version: 4.19.4
-      typescript:
-        specifier: ^5.8.3
-        version: 5.8.3
-
-  packages/package-b:
-    devDependencies:
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -230,8 +208,8 @@ packages:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
     engines: {node: '>=12'}
 
-  '@types/node@22.15.27':
-    resolution: {integrity: sha512-5fF+eu5mwihV2BeVtX5vijhdaZOfkQTATrePEaXTcKqI16LhJ7gi2/Vhd9OZM0UojcdmiOCVg5rrax+i1MdoQQ==}
+  '@types/node@22.15.29':
+    resolution: {integrity: sha512-LNdjOkUDlU1RZb8e1kOIUpN1qQUlzGkEtbVNo53vbrwDg5om6oduhm4SiUaPW5ASTXhAiP0jInWG8Qx9fVlOeQ==}
 
   ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
@@ -487,7 +465,7 @@ snapshots:
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
 
-  '@types/node@22.15.27':
+  '@types/node@22.15.29':
     dependencies:
       undici-types: 6.21.0
 
