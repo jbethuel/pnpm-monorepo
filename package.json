@@ -6,8 +6,10 @@
     "packages/*"
   ],
   "scripts": {
+    "api": "pnpm --filter api",
     "core": "pnpm --filter core",
-    "api": "pnpm --filter api"
+    "ui": "pnpm --filter ui",
+    "web": "pnpm --filter web"
   },
   "devDependencies": {
     "typescript": "^5.8.3"
