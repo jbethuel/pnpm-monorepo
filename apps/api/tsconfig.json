@@ -1,13 +1,15 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@monorepo/ts-config/base.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "NodeNext",
-    "strict": true,
-    "skipLibCheck": true,
+    "moduleResolution": "NodeNext",
     "types": ["node"],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
     "outDir": "build"
   },
-  "exclude": ["node_modules"]
+  "include": ["src"],
+  "exclude": ["node_modules", "build"]
 }
