@@ -2,10 +2,11 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@monorepo/ts-config/base.json",
   "compilerOptions": {
-    "outDir": "build",
+    "jsx": "react-jsx",
     "lib": ["DOM", "ESNext"],
     "module": "ESNext",
-    "target": "ES2017"
+    "target": "ES2017",
+    "outDir": "build"
   },
   "include": ["src"],
   "exclude": ["node_modules", "build"]

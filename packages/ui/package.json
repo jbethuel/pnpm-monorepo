@@ -1,5 +1,5 @@
 {
-  "name": "@monorepo/core",
+  "name": "@monorepo/ui",
   "version": "1.0.0",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -7,11 +7,14 @@
     "dev": "tsx watch --clear-screen=false src",
     "build": "rimraf build && tsc"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react": "^19.1.0"
+  },
   "devDependencies": {
     "@monorepo/ts-config": "workspace:*",
+    "@types/node": "^22.15.29",
+    "@types/react": "^19.1.6",
     "rimraf": "^6.0.1",
-    "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   }
 }
