@@ -6,7 +6,7 @@
     "lib": ["DOM", "ESNext"],
     "module": "ESNext",
     "target": "ES2017",
-    "outDir": "build"
+    "noEmit": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "build"]

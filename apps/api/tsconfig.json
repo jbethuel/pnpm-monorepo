@@ -3,12 +3,11 @@
   "extends": "@monorepo/ts-config/base.json",
   "compilerOptions": {
     "target": "ESNext",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "ESNext",
     "types": ["node"],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
-    "outDir": "build"
+    "noEmit": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "build"]

@@ -1,6 +1,9 @@
 {
   "name": "pnpm-monorepo",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "packageManager": "pnpm@11.13.0",
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -9,9 +12,21 @@
     "api": "pnpm --filter api",
     "core": "pnpm --filter core",
     "ui": "pnpm --filter ui",
-    "web": "pnpm --filter web"
+    "web": "pnpm --filter web",
+    "precheck": "pnpm prettier:check && pnpm lint:check",
+    "typecheck": "pnpm -r typecheck",
+    "lint:check": "eslint . --max-warnings=0",
+    "prettier:check": "prettier --check ./apps ./packages",
+    "prettier:write": "prettier --write ./apps ./packages"
   },
   "devDependencies": {
-    "typescript": "^5.8.3"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.7.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.3",
+    "globals": "^17.7.0",
+    "prettier": "^3.9.5",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.64.0"
   }
 }

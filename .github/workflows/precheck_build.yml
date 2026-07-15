@@ -1,0 +1,43 @@
+name: precheck_build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint_typecheck_build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v7
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Precheck
+        run: pnpm precheck
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Build core
+        run: pnpm --filter core build
+
+      - name: Build ui
+        run: pnpm --filter ui build
+
+      - name: Build api
+        run: pnpm --filter api build
+
+      - name: Build web
+        run: pnpm --filter web build

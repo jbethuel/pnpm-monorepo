@@ -1,17 +1,17 @@
-import { greet } from "@monorepo/core";
-import { Button } from "@monorepo/ui";
-import { useCallback, useMemo, useState } from "react";
+import { greet } from "@monorepo/core"
+import { Button } from "@monorepo/ui"
+import { useCallback, useMemo, useState } from "react"
 
 export function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   const increment = useCallback(() => {
-    setCount((count) => count + 1);
-  }, []);
+    setCount((count) => count + 1)
+  }, [])
 
   const renderGreeting = useMemo(() => {
-    return greet("Vite");
-  }, []);
+    return greet("Vite")
+  }, [])
 
   return (
     <div>
@@ -24,5 +24,5 @@ export function App() {
         </div>
       </header>
     </div>
-  );
+  )
 }

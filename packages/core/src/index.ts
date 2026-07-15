@@ -1,2 +1,2 @@
-export * from './models/User';
-export * from './utils/common';
+export * from "./models/User"
+export * from "./utils/common"
