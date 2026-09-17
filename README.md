@@ -5,7 +5,7 @@ A pnpm workspace monorepo scaffold with a [Hono](https://hono.dev) API, a [Vite]
 ## Requirements
 
 - Node `v24.18.0` (see [`.nvmrc`](.nvmrc) — run `nvm use` if you use nvm)
-- pnpm `11.13.0` (pinned via `packageManager` in [`package.json`](package.json); Corepack will pick this up automatically)
+- pnpm `12.4.2` (pinned via `packageManager` in [`package.json`](package.json); Corepack will pick this up automatically)
 
 ## Getting started
 
@@ -85,14 +85,14 @@ Holds [`base.json`](packages/ts-config/base.json), the shared `tsconfig` every p
 | `api` / `core` / `ui` / `web` | `pnpm --filter <name>` | Shorthand to target one workspace, e.g. `pnpm api dev` |
 | `precheck` | `prettier:check` + `lint:check` | Format + lint check, no type info |
 | `typecheck` | `pnpm -r typecheck` | Typecheck every package |
-| `lint:check` | `eslint . --max-warnings=0` | Lint the whole repo |
+| `lint:check` | `oxlint --max-warnings=0` | Lint the whole repo |
 | `prettier:check` / `prettier:write` | `prettier --check/--write ./apps ./packages` | Format check / auto-format |
 
 ## Tooling
 
-- **ESLint** ([`eslint.config.js`](eslint.config.js)): flat config, `typescript-eslint` + `eslint-plugin-react-hooks` + `eslint-plugin-react-refresh`. Node globals apply to `apps/api`/`packages/core`; browser globals and the React plugins apply to `apps/web`/`packages/ui`.
+- **oxlint** ([`.oxlintrc.json`](.oxlintrc.json)): `correctness` + `suspicious` categories as errors, with the `typescript` and `oxc` plugins. The rules from the old ESLint setup's `@eslint/js` / `typescript-eslint` recommended sets that fall outside those categories are listed explicitly. The `react` plugin (the `eslint-plugin-react-hooks` recommended rules plus `only-export-components`) applies only to `apps/web`/`packages/ui`.
 - **Prettier** ([`.prettierrc.json`](.prettierrc.json)): no semicolons, double quotes, 100-char print width, trailing commas everywhere.
-- **TypeScript is pinned to `~6.0.3`**, not latest. `typescript-eslint`'s current peer range is `>=4.8.4 <6.1.0` — TypeScript 7 (a Go-rewritten compiler with breaking internal API changes) crashes it outright. This pin is load-bearing, not a stale default.
+- **TypeScript 7** (`~7.0.2`, the Go-native compiler) is what `tsc` runs. It ships no JS compiler API, which is why linting is oxlint rather than ESLint: `typescript-eslint` can't run on TypeScript 7. Editors won't find a `tsserver` in `node_modules` and fall back to their bundled TypeScript.
 
 ## CI
 
