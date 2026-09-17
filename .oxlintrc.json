@@ -1,0 +1,71 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+
+  // Named explicitly so oxlint's wider default set (unicorn, etc.) isn't picked up by accident.
+  // `react` is only enabled for the React workspaces, in the override below.
+  "plugins": ["typescript", "oxc"],
+
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error"
+  },
+
+  "rules": {
+    // Rules from `@eslint/js` / `typescript-eslint` recommended that fall outside the categories above
+    "no-case-declarations": "error",
+    "no-empty": "error",
+    "no-fallthrough": "error",
+    "no-prototype-builtins": "error",
+    "no-regex-spaces": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "prefer-rest-params": "error",
+    "prefer-spread": "error",
+    "no-array-constructor": "error",
+    "typescript/ban-ts-comment": "error",
+    "typescript/no-empty-object-type": "error",
+    "typescript/no-explicit-any": "error",
+    "typescript/no-namespace": "error",
+    "typescript/no-require-imports": "error",
+    "typescript/no-unsafe-function-type": "error",
+
+    // Already enforced by tsc's noUnusedLocals / noUnusedParameters
+    "no-unused-vars": "off"
+  },
+
+  "ignorePatterns": ["**/build", "**/dist", "**/out"],
+
+  "overrides": [
+    {
+      "files": ["apps/web/**/*.{ts,tsx}", "packages/ui/**/*.{ts,tsx}"],
+      "plugins": ["typescript", "oxc", "react"],
+      "rules": {
+        // eslint-plugin-react-hooks `recommended`
+        "react/rules-of-hooks": "error",
+        "react/exhaustive-deps": "warn",
+        "react/static-components": "error",
+        "react/use-memo": "error",
+        "react/preserve-manual-memoization": "error",
+        "react/immutability": "error",
+        "react/globals": "error",
+        "react/refs": "error",
+        "react/set-state-in-effect": "error",
+        "react/error-boundaries": "error",
+        "react/purity": "error",
+        "react/set-state-in-render": "error",
+        "react/unsupported-syntax": "warn",
+        "react/incompatible-library": "off",
+
+        // eslint-plugin-react-refresh
+        "react/only-export-components": ["warn", { "allowConstantExport": true }],
+
+        // Everything compiles with `jsx: react-jsx`, so React doesn't need to be in scope
+        "react/react-in-jsx-scope": "off",
+
+        // oxlint's own duplicates of rules-of-hooks / exhaustive-deps; would report every issue twice
+        "react/hooks": "off",
+        "react/exhaustive-effect-dependencies": "off"
+      }
+    }
+  ]
+}
